@@ -1,9 +1,17 @@
 <html>
-<head><title></title></head>
+<head>
+    <title>SSG-Backend Index</title>
+</head>
 
 <body>
-
-{{ content }}
+    <div class="url-list">
+        <a>URLs</a
+        <ol>
+            {% for i in context.values %}
+            <li><a href="{{i}}">{{i}}</a></li>
+            {% endfor %}
+        </ol>
+     </div>
 
 </body>
 </html>

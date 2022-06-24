@@ -4,6 +4,7 @@
     <Name>SSG-Backend</Name>
     <RootNamespace>SSG-Backend</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="SSGBackend\templates\SSGBackend\fussballde.html" />
     <Content Include="SSGBackend\templates\SSGBackend\index.html" />
   </ItemGroup>
   <ItemGroup>

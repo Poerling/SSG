@@ -1,27 +1,24 @@
+from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from django.urls import get_resolver
-import json
+import requests
 
 # Create your views here.
 
 #index-/landing-site
 def index(request):
-    overview()
-    return HttpResponse(overview())
+    context = {0:'/index',
+               1:'/home',
+               2:'/fussballde',
+               3:'/dummy3'}
+    return render(request,"SSGBackend/index.html", {"context":context})
 
-#overview about
-def overview():
-    site_collection = {}
-    my_urls = get_resolver().url_patterns
-    print(type(my_urls))
-    print(my_urls[0])
-    print(my_urls[1])
-    print(len(my_urls))
-    for i in len(my_urls):
-        print(i)
-    
-    
-    site_collection = json.dumps(site_collection)
-    #print(type(json.loads(site_collection)))
-    return site_collection
+
+#fussballde widget
+def fussballde(request):
+    get_request = requests.get('https://www.fussball.de/widget2/-/schluessel/02IF7N66TC000000VUM1DNOHVURP64MN/target/widget1/caller/localhost%3A8000#!/')
+    start_string = str(get_request.text)
+    print(start_string.find('<table class="table table-striped table-full-width">'))
+    context = {'message':'Fussball.de Widget (only for testing)',
+               'request':get_request.text}
+    return render(request,"SSGBackend/fussballde.html", {"context":context})

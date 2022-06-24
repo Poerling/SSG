@@ -27,4 +27,5 @@ urlpatterns = [
     #path('admin/', admin.site.urls)
     url(r'^$', SSGBackend.views.index, name='index'),
     url(r'^home$', SSGBackend.views.index, name='home'),
+    url(r'^fussballde$', SSGBackend.views.fussballde, name='fussballde'),
 ]
